@@ -10,9 +10,9 @@ data <- list(
   list(name='2.2. Prepação do manuscrito', level=4, start=1, end=3),
   list(name='2.3. Submissão', level=4, start=3, end=4),
   list(name='Manuscrito 3', level=5, start=2, end=6),
-  list(name='3.1 Compilação e organização dos dados', level=6, start=2, end=4),
-  list(name='3.2 Prepação do manuscrito', level=6, start=4, end=6),
-  list(name="3.3. Analise de dados", level=6, start=5, end=6),
+  list(name='3.1 Organização dos dados', level=6, start=2, end=4),
+  list(name="3.2. Analise de dados", level=6, start=4, end=5),
+  list(name='3.3. Prepação do manuscrito', level=6, start=4, end=6),
   list(name='3.4 Submissão', level=6, start=5, end=6))
 
 
