@@ -1,9 +1,8 @@
+##Load package
 devtools::install_github('Kitware/candela', subdir='R/candela', dependencies = TRUE)
 library(candela)
 
-devtools::install_github('Kitware/candela', subdir='R/candela', dependencies = TRUE)
-library(candela)
-
+##organize tasks
 data <- list(
   list(name='WP 1', level=1, start=0, end=13),
   list(name='1.1. Compile literature', level=2, start=0, end=4),
@@ -25,6 +24,7 @@ data <- list(
   list(name='4.3. Preparing Manuscript', level=8, start=42, end=48),
   list(name='Possible internationl stay', level=9, start=12, end=42))
 
+### Plot
 candela('GanttChart',
         data=data, label='name',
         start='start', end='end', level='level',
