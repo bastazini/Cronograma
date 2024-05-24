@@ -19,8 +19,8 @@ data <- list(
   list(name="2.5. Development of an analysis reproducibility framework", level=8, start=29, end=30),
   list(name='2.6. Third in person meeting', level=4, start=30, end=31),
   list(name='2.7. Next research agenda', level=4, start=31, end=33),
-  list(name='2.8. Project report and iDiv seminar', level=4, start=32, end=34),
-  list(name='MAKING A FUCKING T-SHIRT', level=5, start=32, end=34))
+  list(name='2.8. Project report and iDiv seminar', level=4, start=32, end=34)
+  )
 
 ### Plot
 candela('GanttChart',
