@@ -1,0 +1,45 @@
+# Load necessary libraries
+library(ggplot2)
+library(lubridate)
+
+# Define the project data
+tasks <- data.frame(
+  Task = c(
+    "1. RO1. Evaluate ECE effects",
+    "1.1. First Online meeting",
+    "1.2. Local networks filtering and assembling",
+    "1.3. Characterisation of ECEs",
+    "1.4. Computation of Network properties",
+    "1.5. Preliminary attribution analysis",
+    "2. RO1. Evaluate ECE Vulnerability",
+    "2.1.Development of attribution analysis",
+    "2.2.Second Online meeting",
+    "2.3.Writing of the paper one"
+  ),
+  Start = as.numeric(c(
+    "1", "1", "1", "1",
+    "2", "2", "3", "3",
+    "7", "12"
+  )),
+  End = as.numeric(c(
+    "12", "2", "4", "12",
+    "30", "21", "31", "31",
+    "38", "38"
+  ))
+)
+
+# Order tasks by Task column
+tasks <- tasks[order(tasks$Task), ]
+tasks$Task <- factor(tasks$Task, levels = rev(tasks$Task))
+
+# Add a column to differentiate main tasks and sub-tasks
+tasks$Color <- ifelse(grepl("^\\d\\. ", tasks$Task), "black", "grey")
+
+# Plotting the Gantt chart
+ggplot(tasks, aes(x = Start, xend = End, y = Task, yend = Task, color = Color)) +
+  geom_segment(size = 6) +
+  scale_color_identity() +
+  labs(title = "Project Timeline", x = "Months", y = "Tasks") +
+  scale_x_continuous(breaks = seq(1, 38, by = 1), limits = c(1, 38)) +
+  theme_minimal() +
+  theme(axis.text.y = element_text(size = 10), axis.text.x = element_text(angle = 45, hjust = 1))
