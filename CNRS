@@ -1,0 +1,111 @@
+# Load necessary libraries
+library(ggplot2)
+library(lubridate)
+
+# Define the project data
+tasks <- data.frame(
+  Task = c(
+    # WP 1: Searching Phylogenetic Signatures
+    "WP 1: Searching Phylogenetic Signatures",
+    "1.1. Literature Search and Compilation",
+    "1.2. Method Categorization and Review",
+    "1.3. Data Analysis",
+    "1.4. Manuscript Preparation",
+    
+    # WP 2: Phylogenetic Constraints
+    "WP 2: Phylogenetic Constraints on Mutualism Networks",
+    "2.1. Data Compilation and Collection",
+    "2.2. Spatial and Biogeographical Analysis",
+    "2.3. Manuscript Preparation",
+    
+    # WP 3: Forecasting Network Reorganization
+    "WP 3: Forecasting Network Reorganization",
+    "3.1. Data Organization and Model Setup",
+    "3.2. Network Dynamics Modeling",
+    "3.3. Manuscript Preparation",
+    
+    # WP 4: Mapping Vulnerability
+    "WP 4: Mapping Vulnerability for Conservation",
+    "4.1. Spatial Information Collection",
+    "4.2. Develop and Test Prioritization Tool",
+    "4.3. Integration and Data Analysis",
+    "4.4. Manuscript Preparation",
+    
+    # WP 5: Long-Term Monitoring
+    "WP 5: Long-Term Monitoring",
+    "5.1. Establish Monitoring Protocols",
+    "5.2. Data Collection",
+    "5.3. Data Integration and Analysis"
+  ),
+  Start = c(
+    # WP 1
+    1, 1, 6, 12, 16,
+    # WP 2
+    18, 18, 24, 30,
+    # WP 3
+    35, 35, 40, 45,
+    # WP 4
+    50, 50, 55, 60, 65,
+    # WP 5
+    70, 70, 80, 90
+  ),
+  End = c(
+    # WP 1
+    18, 6, 12, 16, 18,
+    # WP 2
+    36, 24, 30, 36,
+    # WP 3
+    50, 40, 45, 50,
+    # WP 4
+    70, 55, 65, 65, 70,
+    # WP 5
+    120, 80, 90, 120
+  )
+)
+
+# Order tasks hierarchically
+tasks$Task <- factor(tasks$Task, levels = rev(c(
+  # WP 1 hierarchy
+  "WP 1: Searching Phylogenetic Signatures",
+  "1.1. Literature Search and Compilation",
+  "1.2. Method Categorization and Review",
+  "1.3. Data Analysis",
+  "1.4. Manuscript Preparation",
+  
+  # WP 2 hierarchy
+  "WP 2: Phylogenetic Constraints on Mutualism Networks",
+  "2.1. Data Compilation and Collection",
+  "2.2. Spatial and Biogeographical Analysis",
+  "2.3. Manuscript Preparation",
+  
+  # WP 3 hierarchy
+  "WP 3: Forecasting Network Reorganization",
+  "3.1. Data Organization and Model Setup",
+  "3.2. Network Dynamics Modeling",
+  "3.3. Manuscript Preparation",
+  
+  # WP 4 hierarchy
+  "WP 4: Mapping Vulnerability for Conservation",
+  "4.1. Spatial Information Collection",
+  "4.2. Develop and Test Prioritization Tool",
+  "4.3. Integration and Data Analysis",
+  "4.4. Manuscript Preparation",
+  
+  # WP 5 hierarchy
+  "WP 5: Long-Term Monitoring",
+  "5.1. Establish Monitoring Protocols",
+  "5.2. Data Collection",
+  "5.3. Data Integration and Analysis"
+)))
+
+# Add a column to differentiate main tasks and sub-tasks
+tasks$Color <- ifelse(grepl("^WP", tasks$Task), "black", "grey")
+
+# Plotting the Gantt chart
+ggplot(tasks, aes(x = Start, xend = End, y = Task, yend = Task, color = Color)) +
+  geom_segment(size = 6) +
+  scale_color_identity() +
+  labs(title = "Project Timeline", x = "Months", y = "Tasks") +
+  scale_x_continuous(breaks = seq(1, 120, by = 12), limits = c(1, 120)) +
+  theme_minimal() +
+  theme(axis.text.y = element_text(size = 10), axis.text.x = element_text(angle = 45, hjust = 1))
