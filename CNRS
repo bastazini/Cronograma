@@ -31,8 +31,8 @@ tasks <- data.frame(
     "4.3. Integration and Data Analysis",
     "4.4. Manuscript Preparation",
     
-    # WP 5: Assessing the Consequences of Species Loss
-    "WP 5: Assessing the Consequences of Species Loss on Functional Robustness in Ecological Networks under Climate Change",
+    # WP 5: Consequences of Species Loss on Functional Robustness in Ecological Networks
+    "WP 5: Consequences of Species Loss on Functional Robustness in Ecological Networks",
     "5.1. Data Collection",
     "5.2. Modeling Species Loss Impact",
     "5.3. Network Robustness Analysis",
@@ -102,7 +102,7 @@ tasks$Task <- factor(tasks$Task, levels = rev(c(
   "4.4. Manuscript Preparation",
   
   # WP 5 hierarchy
-  "WP 5: Assessing the Consequences of Species Loss on Functional Robustness in Ecological Networks under Climate Change",
+  "WP 5: Consequences of Species Loss on Functional Robustness in Ecological Networks",
   "5.1. Data Collection",
   "5.2. Modeling Species Loss Impact",
   "5.3. Network Robustness Analysis",
