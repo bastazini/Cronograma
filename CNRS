@@ -31,11 +31,17 @@ tasks <- data.frame(
     "4.3. Integration and Data Analysis",
     "4.4. Manuscript Preparation",
     
-    # WP 5: Long-Term Monitoring
-    "WP 5: Long-Term Monitoring",
-    "5.1. Establish Monitoring Protocols",
-    "5.2. Data Collection",
-    "5.3. Data Integration and Analysis"
+    # WP 5: Assessing the Consequences of Species Loss
+    "WP 5: Assessing the Consequences of Species Loss on Functional Robustness in Ecological Networks under Climate Change",
+    "5.1. Data Collection",
+    "5.2. Modeling Species Loss Impact",
+    "5.3. Network Robustness Analysis",
+    "5.4. Manuscript Preparation",
+    
+    # WP 6: Long-Term Monitoring of Phenology
+    "WP 6: Long-Term Monitoring of Phenology",
+    "6.1. Establish Monitoring Program",
+    "6.2. Data Collection and Integration"
   ),
   Start = c(
     # WP 1
@@ -47,7 +53,9 @@ tasks <- data.frame(
     # WP 4
     50, 50, 55, 60, 65,
     # WP 5
-    70, 70, 80, 90
+    70, 70, 75, 80, 85,
+    # WP 6
+    70, 75, 80
   ),
   End = c(
     # WP 1
@@ -59,7 +67,9 @@ tasks <- data.frame(
     # WP 4
     70, 55, 65, 65, 70,
     # WP 5
-    120, 80, 90, 120
+    90, 75, 80, 85, 90,
+    # WP 6
+    120, 85, 120
   )
 )
 
@@ -92,10 +102,16 @@ tasks$Task <- factor(tasks$Task, levels = rev(c(
   "4.4. Manuscript Preparation",
   
   # WP 5 hierarchy
-  "WP 5: Long-Term Monitoring",
-  "5.1. Establish Monitoring Protocols",
-  "5.2. Data Collection",
-  "5.3. Data Integration and Analysis"
+  "WP 5: Assessing the Consequences of Species Loss on Functional Robustness in Ecological Networks under Climate Change",
+  "5.1. Data Collection",
+  "5.2. Modeling Species Loss Impact",
+  "5.3. Network Robustness Analysis",
+  "5.4. Manuscript Preparation",
+  
+  # WP 6 hierarchy
+  "WP 6: Long-Term Monitoring of Phenology",
+  "6.1. Establish Monitoring Program",
+  "6.2. Data Collection and Integration"
 )))
 
 # Add a column to differentiate main tasks and sub-tasks
